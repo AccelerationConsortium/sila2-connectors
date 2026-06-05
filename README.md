@@ -5,7 +5,7 @@ SiLA2 instrument connectors developed at the [Acceleration Consortium](https://a
 ## Connectors
 
 <!-- CONNECTORS-START -->
-- [opentrons-ot2](https://github.com/AccelerationConsortium/opentrons-ot2) 🔒 — Opentrons OT2 Unite Labs Connector built for deployment on OT2 hardware as a drop-in replacement for their HTTP server
+_No connectors found._
 <!-- CONNECTORS-END -->
 
 _🔒 = private repository. Access restricted to org members._
