@@ -16,14 +16,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Generate org-scoped token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.AC_CONNECTORS_APP_ID }}
+          private-key: ${{ secrets.AC_CONNECTORS_APP_KEY }}
+          owner: AccelerationConsortium
+
       - name: Regenerate connector list
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
           python3 - <<'EOF'
           import subprocess, json, re, pathlib
 
-          # Search API works across the org within the token's access scope
           result = subprocess.run(
               ["gh", "api", "/search/repositories?q=topic:sila2-connector+org:AccelerationConsortium&per_page=100",
                "--jq", '.items[] | select(.name != "sila2-connectors") | {name, description, html_url, private}'],
