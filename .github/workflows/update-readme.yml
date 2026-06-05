@@ -1,0 +1,60 @@
+name: Update connector list
+
+on:
+  schedule:
+    - cron: "0 6 * * *"  # daily at 6am UTC
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Regenerate connector list
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 - <<'EOF'
+          import subprocess, json, re, pathlib
+
+          result = subprocess.run(
+              ["gh", "api", "/orgs/AccelerationConsortium/repos",
+               "--paginate", "--jq",
+               '.[] | select(.topics | contains(["sila2-connector"])) | select(.name != "sila2-connectors") | {name, description, url, private}'],
+              capture_output=True, text=True
+          )
+
+          repos = [json.loads(line) for line in result.stdout.strip().splitlines() if line]
+          repos.sort(key=lambda r: r["name"])
+
+          lines = []
+          for r in repos:
+              lock = " 🔒" if r["private"] else ""
+              desc = f" — {r['description']}" if r["description"] else ""
+              lines.append(f"- [{r['name']}]({r['url']}){lock}{desc}")
+
+          block = "\n".join(lines) if lines else "_No connectors found._"
+
+          readme = pathlib.Path("README.md")
+          content = readme.read_text()
+          content = re.sub(
+              r"<!-- CONNECTORS-START -->.*?<!-- CONNECTORS-END -->",
+              f"<!-- CONNECTORS-START -->\n{block}\n<!-- CONNECTORS-END -->",
+              content,
+              flags=re.DOTALL,
+          )
+          readme.write_text(content)
+          print(f"Updated {len(repos)} connector(s)")
+          EOF
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git diff --quiet README.md || (git add README.md && git commit -m "chore: update connector list [skip ci]" && git push)
