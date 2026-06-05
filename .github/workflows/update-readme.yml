@@ -23,10 +23,10 @@ jobs:
           python3 - <<'EOF'
           import subprocess, json, re, pathlib
 
+          # Search API works across the org within the token's access scope
           result = subprocess.run(
-              ["gh", "api", "/orgs/AccelerationConsortium/repos",
-               "--paginate", "--jq",
-               '.[] | select(.topics | contains(["sila2-connector"])) | select(.name != "sila2-connectors") | {name, description, url, private}'],
+              ["gh", "api", "/search/repositories?q=topic:sila2-connector+org:AccelerationConsortium&per_page=100",
+               "--jq", '.items[] | select(.name != "sila2-connectors") | {name, description, html_url, private}'],
               capture_output=True, text=True
           )
 
@@ -37,7 +37,7 @@ jobs:
           for r in repos:
               lock = " 🔒" if r["private"] else ""
               desc = f" — {r['description']}" if r["description"] else ""
-              lines.append(f"- [{r['name']}]({r['url']}){lock}{desc}")
+              lines.append(f"- [{r['name']}]({r['html_url']}){lock}{desc}")
 
           block = "\n".join(lines) if lines else "_No connectors found._"
 
