@@ -12,11 +12,10 @@ _🔒 = private repository. Access restricted to org members._
 
 This list updates automatically when repos tagged `sila2-connector` are added to the org.
 
-## UniteLabs Connectors
+## UniteLabs
 
-UniteLabs maintains a library of connectors on GitLab:
-
-> _GitLab org URL to be added._
+- **[Connectors](https://gitlab.com/unitelabs/connectors)** — UniteLabs' GitLab library of SiLA2 connectors for commercial instruments
+- **[Python CDK](https://gitlab.com/unitelabs/cdk/python-cdk)** — the SDK used to build and run these connectors
 
 ## Structure
 
