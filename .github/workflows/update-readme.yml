@@ -27,38 +27,7 @@ jobs:
       - name: Regenerate connector list
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
-        run: |
-          python3 - <<'EOF'
-          import subprocess, json, re, pathlib
-
-          result = subprocess.run(
-              ["gh", "api", "/search/repositories?q=topic:sila2-connector+org:AccelerationConsortium&per_page=100",
-               "--jq", '.items[] | select(.name != "sila2-connectors") | {name, description, html_url, private}'],
-              capture_output=True, text=True
-          )
-
-          repos = [json.loads(line) for line in result.stdout.strip().splitlines() if line]
-          repos.sort(key=lambda r: r["name"])
-
-          lines = []
-          for r in repos:
-              lock = " 🔒" if r["private"] else ""
-              desc = f" — {r['description']}" if r["description"] else ""
-              lines.append(f"- [{r['name']}]({r['html_url']}){lock}{desc}")
-
-          block = "\n".join(lines) if lines else "_No connectors found._"
-
-          readme = pathlib.Path("README.md")
-          content = readme.read_text()
-          content = re.sub(
-              r"<!-- CONNECTORS-START -->.*?<!-- CONNECTORS-END -->",
-              f"<!-- CONNECTORS-START -->\n{block}\n<!-- CONNECTORS-END -->",
-              content,
-              flags=re.DOTALL,
-          )
-          readme.write_text(content)
-          print(f"Updated {len(repos)} connector(s)")
-          EOF
+        run: python3 scripts/update_readme.py
 
       - name: Commit if changed
         run: |

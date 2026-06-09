@@ -10,7 +10,7 @@ SiLA2 instrument connectors developed at the [Acceleration Consortium](https://a
 
 _🔒 = private repository. Access restricted to org members._
 
-This list updates automatically when repos tagged `sila2-connector` are added to the org.
+This list updates automatically when repos tagged `sila2-connector` are added to a tracked org. Connectors from multiple GitHub organizations can appear here — see [Contributing](#contributing).
 
 ## UniteLabs
 
@@ -28,8 +28,18 @@ Each connector is a standalone repository named `sila2-<manufacturer>-<model>` a
 
 ## Contributing
 
-To add a new connector:
+### Adding a connector within AccelerationConsortium
 
 1. Create a repo in `AccelerationConsortium` named `sila2-<manufacturer>-<model>`
 2. Add the topic `sila2-connector` (plus any device-specific topics e.g. `ot2`)
 3. It will appear in the list above within 24 hours, or immediately via [manual trigger](../../actions/workflows/update-readme.yml)
+
+### Listing connectors from another GitHub organization
+
+Any organization building SiLA2 connectors is welcome to have them listed here.
+
+**Step 1 — Tag your repos.** Add the topic `sila2-connector` to each connector repo in your GitHub organization. The topic must be exactly `sila2-connector` (no variations).
+
+**Step 2 — Open a pull request.** Add your GitHub organization name as a new line in [`orgs.txt`](orgs.txt) in this repository and open a pull request. Once merged, your connectors will appear in the list above automatically.
+
+If you have questions or would like to discuss before opening a PR, [open an issue](../../issues/new).
