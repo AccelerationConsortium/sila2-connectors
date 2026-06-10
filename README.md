@@ -14,6 +14,7 @@ This list updates automatically when repos tagged `sila2-connector` are added to
 
 ## UniteLabs
 
+- **[Connector Development Docs](https://docs.unitelabs.io/connector-development)** — getting started guide for building SiLA2 connectors with the UniteLabs CDK
 - **[Connectors](https://gitlab.com/unitelabs/connectors)** — UniteLabs' GitLab library of SiLA2 connectors for commercial instruments
 - **[Python CDK](https://gitlab.com/unitelabs/cdk/python-cdk)** — the SDK used to build and run these connectors
 
