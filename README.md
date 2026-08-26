@@ -7,6 +7,7 @@ SiLA2 instrument connectors developed at the [Acceleration Consortium](https://a
 <!-- CONNECTORS-START -->
 - [AccelerationConsortium/opentrons-flex](https://github.com/AccelerationConsortium/opentrons-flex) — Opentrons Flex Connector built for deployment on OTFlex hardware as a drop-in replacement for their HTTP server
 - [AccelerationConsortium/opentrons-ot2](https://github.com/AccelerationConsortium/opentrons-ot2) — Opentrons OT2 UniteLabs Connector built for deployment on OT2 hardware as a drop-in replacement for their HTTP server
+- [AccelerationConsortium/sainsmart-relay-sila](https://github.com/AccelerationConsortium/sainsmart-relay-sila) 🔒 — SiLA 2 connector for the SainSmart 16-channel USB relay (CH340) - UniteLabs CDK
 <!-- CONNECTORS-END -->
 
 _🔒 = private repository. Access restricted to org members._
