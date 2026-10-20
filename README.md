@@ -1,6 +1,6 @@
 # SiLA2 Instrument Connectors
 
-SiLA2 instrument connectors developed at the [Acceleration Consortium](https://acceleration.utoronto.ca/). Each connector exposes a laboratory instrument as a [SiLA2](https://sila-standard.com/) gRPC service, making it addressable from any SiLA2-compatible orchestration platform.
+Collection of links to repositories that contain SiLA2 instrument connectors; each connector exposes a laboratory instrument as a [SiLA2](https://sila-standard.com/) gRPC service, making it addressable from any SiLA2-compatible orchestration platform.
 
 ## Connectors
 
