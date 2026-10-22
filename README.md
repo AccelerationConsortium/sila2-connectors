@@ -5,9 +5,11 @@ Collection of links to repositories that contain SiLA2 instrument connectors; ea
 ## Connectors
 
 <!-- CONNECTORS-START -->
+- [AccelerationConsortium/openflexure-microscope-connector](https://github.com/AccelerationConsortium/openflexure-microscope-connector) — OpenFlexure Microscope UniteLabs Connector: SiLA 2 interface to the OpenFlexure Microscope Server v2 (stage, camera, captures, autofocus)
 - [AccelerationConsortium/opentrons-flex](https://github.com/AccelerationConsortium/opentrons-flex) — Opentrons Flex Connector built for deployment on OTFlex hardware as a drop-in replacement for their HTTP server
 - [AccelerationConsortium/opentrons-ot2](https://github.com/AccelerationConsortium/opentrons-ot2) — Opentrons OT2 UniteLabs Connector built for deployment on OT2 hardware as a drop-in replacement for their HTTP server
 - [AccelerationConsortium/sainsmart-relay-sila](https://github.com/AccelerationConsortium/sainsmart-relay-sila) 🔒 — SiLA 2 connector for the SainSmart 16-channel USB relay (CH340) - UniteLabs CDK
+- [AccelerationConsortium/ur5e-sila-connector](https://github.com/AccelerationConsortium/ur5e-sila-connector) — Cross-platform UR5e connector using SiLA 2 and the UniteLabs CDK, with a visual six-axis Action Composer, simulation, live telemetry, reusable tasks and trajectory export. macOS, Linux and Windows.
 <!-- CONNECTORS-END -->
 
 _🔒 = private repository. Access restricted to org members._
