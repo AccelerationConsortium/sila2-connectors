@@ -13,6 +13,7 @@ Collection of links to repositories that contain SiLA2 instrument connectors; ea
 - [AccelerationConsortium/sila2-ika-matrix-orbital](https://github.com/AccelerationConsortium/sila2-ika-matrix-orbital) — SiLA 2 connector for the IKA MATRIX Orbital Delta Plus thermoshaker, built with the UniteLabs CDK on the heingroup ika driver
 - [AccelerationConsortium/thermoscientific-alps3000](https://github.com/AccelerationConsortium/thermoscientific-alps3000) — Thermo Scientific ALPS 3000 Connector using UniteLabs CDK: SiLA2 interface to the ALPS 3000 microplate heat sealer over RS232 (sealing, temperature, status, errors), with simulation
 - [AccelerationConsortium/ur5e-sila-connector](https://github.com/AccelerationConsortium/ur5e-sila-connector) — Cross-platform UR5e connector using SiLA 2 and the UniteLabs CDK, with a visual six-axis Action Composer, simulation, live telemetry, reusable tasks and trajectory export. macOS, Linux and Windows.
+- [AccelerationConsortium/zebra-ds8178](https://github.com/AccelerationConsortium/zebra-ds8178) — A SiLA 2 connector, built on the UniteLabs CDK, for the Zebra DS8178 cordless 1D/2D barcode scanner and its CR8178 cradle over USB (SSI).
 - [kaisei0316/tecan-infinite-connector](https://github.com/kaisei0316/tecan-infinite-connector)
 <!-- CONNECTORS-END -->
 
